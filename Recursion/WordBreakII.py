@@ -8,10 +8,12 @@ class Solution:
                 ans.append (" ".join(path))
                 return
             
-            for word in word_set:
-                if s[start:].startswith(word):
+            for end_index in range (start+1,len(s)+1):            
+                word = s [start:end_index]
+
+                if word in word_set:
                     path.append(word)
-                    dfs (start+len(word),path)
+                    dfs (end_index,path)
                     path.pop()
         
         dfs (0,[]) # [] is path
